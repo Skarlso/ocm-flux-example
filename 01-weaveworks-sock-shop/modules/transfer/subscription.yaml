@@ -1,0 +1,18 @@
+apiVersion: delivery.ocm.software/v1alpha1
+kind: ComponentSubscription
+metadata:
+  name: sockshop
+  namespace: ocm-system
+spec:
+  semver: "~v1-0"
+  interval: 1h
+  source:
+    url: ghcr.io/skarlso/ocm-delivery
+    secretRef:
+      name: oci-creds
+  destination:
+    url: ghcr.io/skarlso/ocm-consumer
+    secretRef:
+      name: oci-creds
+  component: github.com/weaveworks/sock-shop
+  verify: []
