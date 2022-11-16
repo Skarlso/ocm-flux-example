@@ -8,10 +8,10 @@ metadata:
 spec:
   interval: 1m0s
   ref:
-    branch: phoban01/use-podinfo
+    branch: main
   secretRef:
     name: flux-system
-  url: ssh://git@github.com/phoban01/reinvent-demo
+  url: ssh://git@github.com/skarlso/ocm-flux-example
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization
