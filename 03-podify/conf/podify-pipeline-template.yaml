@@ -1,7 +1,7 @@
 apiVersion: config.ocm.software/v1alpha1
 kind: PipelineTemplate
 metadata:
-  name: sockshop-pipeline-template
+  name: podify-pipeline-template
 steps:
 - name: resource
   template:

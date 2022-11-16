@@ -1,0 +1,45 @@
+apiVersion: delivery.ocm.software/v1alpha1
+kind: ComponentVersion
+metadata:
+  name: podify
+  namespace: ocm-system
+spec:
+  interval: 10m0s
+  name: github.com/weaveworks/podify
+  version: v1.0.0-dev
+  repository:
+    url: ghcr.io/skarlso/ocm-podify
+    secretRef:
+      name: oci-creds
+  verify: []
+  references:
+    expand: true
+---
+apiVersion: delivery.ocm.software/v1alpha1
+kind: Diffusion
+metadata:
+  name: podify
+  namespace: ocm-system
+spec:
+  interval: 10m0s
+  prune: true
+  componentVersionRef:
+    name: podify
+    namespace: ocm-system
+  resourceSelector:
+    skipRoot: true
+    followReferences: true
+    matchSelector:
+    - field: "type"
+      values:
+      - kustomize.ocm.fluxcd.io
+  pipelineTemplateRef:
+    kind: GitRepository
+    name: flux-system
+    namespace: flux-system
+    path: ./03-podify/conf/podify-pipeline-template.yaml
+  values:
+    frontend:
+      manifests:
+        message: "Welcome to podify"
+        color: "blue"
