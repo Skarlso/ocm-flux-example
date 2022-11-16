@@ -11,7 +11,7 @@ steps:
       name: {{ .Parameters.Name }}
       namespace: {{ .Component.Namespace }}
     spec:
-      interval: 10m0s
+      interval: 1m0s
       componentVersionRef:
         name: {{ .Component.Name }}
         namespace: {{ .Component.Namespace }}
@@ -32,7 +32,7 @@ steps:
       name: {{ .Parameters.Name }}
       namespace: {{ .Component.Namespace }}
     spec:
-      interval: 10m
+      interval: 1m0s
       sourceRef:
         kind: Snapshot
         name: {{ .Parameters.Name }}
@@ -58,7 +58,7 @@ steps:
       name: {{ .Parameters.Name }}
       namespace: {{ .Component.Namespace }}
     spec:
-      interval: 10m
+      interval: 1m0s
       sourceRef:
         kind: Snapshot
         name: {{ .Parameters.Name }}-localized
@@ -85,8 +85,8 @@ steps:
       name: {{ .Parameters.Name }}
       namespace: {{ .Component.Namespace }}
     spec:
-      interval: 10m0s
-      url: oci://{{ .Registry }}/{{ .Parameters.Name }}-configured
+      interval: 1m0s
+      url: oci://{{ .Registry }}/snapshots/{{ .Parameters.Name }}-configured
       insecure: true
       ref:
         tag: latest
@@ -98,7 +98,7 @@ steps:
       name: {{ .Parameters.Name }}
       namespace: {{ .Component.Namespace }}
     spec:
-      interval: 10m0s
+      interval: 1m0s
       prune: true
       sourceRef:
         kind: OCIRepository

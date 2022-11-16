@@ -10,7 +10,7 @@ spec:
   repository:
     url: ghcr.io/skarlso/ocm-podify
     secretRef:
-      name: oci-creds
+      name: creds
   verify: []
   references:
     expand: true
