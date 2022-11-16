@@ -4,7 +4,7 @@ metadata:
   name: podify
   namespace: ocm-system
 spec:
-  interval: 10m0s
+  interval: 1m0s
   name: github.com/weaveworks/podify
   version: v1.0.2-dev
   repository:
@@ -25,7 +25,7 @@ metadata:
   name: podify
   namespace: ocm-system
 spec:
-  interval: 10m0s
+  interval: 1m0s
   prune: true
   componentVersionRef:
     name: podify
@@ -46,4 +46,4 @@ spec:
     frontend:
       manifests:
         message: "Welcome to podify"
-        color: "blue"
+        color: "yellow"
