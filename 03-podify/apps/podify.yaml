@@ -6,12 +6,16 @@ metadata:
 spec:
   interval: 10m0s
   name: github.com/weaveworks/podify
-  version: v1.0.0-dev
+  version: v1.0.2-dev
   repository:
-    url: ghcr.io/skarlso/ocm-podify
+    url: ghcr.io/phoban01/ocm-podify
     secretRef:
-      name: oci-creds
-  verify: []
+      name: creds
+  verify:
+  - name: phoban01
+    publicKey:
+      secretRef:
+        name: phoban01-publickey
   references:
     expand: true
 ---
