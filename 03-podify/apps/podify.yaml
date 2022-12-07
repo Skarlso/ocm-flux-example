@@ -5,7 +5,7 @@ metadata:
   namespace: ocm-system
 spec:
   interval: 1m0s
-  name: github.com/weaveworks/podify
+  component: github.com/weaveworks/podify
   version:
     semver: v1.0.2-dev
   repository:
