@@ -6,7 +6,8 @@ metadata:
 spec:
   interval: 1m0s
   name: github.com/weaveworks/podify
-  version: v1.0.2-dev
+  version:
+    semver: v1.0.2-dev
   repository:
     url: ghcr.io/phoban01/ocm-podify
     secretRef:
