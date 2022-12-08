@@ -19,7 +19,7 @@ steps:
         name: {{ .Resource }}
         {{ with .Component.Reference  }}
         referencePath:
-          name: {{ . }}
+          - name: {{ . }}
         {{ end }}
       snapshotTemplate:
         name: {{ .Parameters.Name }}
@@ -45,7 +45,7 @@ steps:
           name: config
           {{ with .Component.Reference  }}
           referencePath:
-            name: {{ . }}
+            - name: {{ . }}
           {{ end }}
       snapshotTemplate:
         name: {{ .Parameters.Name }}-localized
@@ -71,7 +71,7 @@ steps:
           name: config
           {{ with .Component.Reference  }}
           referencePath:
-            name: {{ . }}
+            - name: {{ . }}
           {{ end }}
       values: {{ .Values | toYaml | nindent 8 }}
       snapshotTemplate:
