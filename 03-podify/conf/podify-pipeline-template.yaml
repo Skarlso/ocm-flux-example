@@ -17,10 +17,10 @@ steps:
         namespace: {{ .Component.Namespace }}
       resource:
         name: {{ .Resource }}
-        {{ with .Component.Reference  }}
         referencePath:
+          {{ with .Component.Reference  }}
           - name: {{ . }}
-        {{ end }}
+          {{ end }}
       snapshotTemplate:
         name: {{ .Parameters.Name }}
         tag: latest
@@ -43,10 +43,10 @@ steps:
           namespace: {{ .Component.Namespace }}
         resource:
           name: config
-          {{ with .Component.Reference  }}
           referencePath:
+            {{ with .Component.Reference }}
             - name: {{ . }}
-          {{ end }}
+            {{ end }}
       snapshotTemplate:
         name: {{ .Parameters.Name }}-localized
         tag: latest
@@ -69,10 +69,10 @@ steps:
           namespace: {{ .Component.Namespace }}
         resource:
           name: config
-          {{ with .Component.Reference  }}
           referencePath:
+            {{ with .Component.Reference }}
             - name: {{ . }}
-          {{ end }}
+            {{ end }}
       values: {{ .Values | toYaml | nindent 8 }}
       snapshotTemplate:
         name: {{ .Parameters.Name }}-configured
