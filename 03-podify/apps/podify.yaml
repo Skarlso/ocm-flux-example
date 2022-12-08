@@ -9,14 +9,10 @@ spec:
   version:
     semver: v1.0.2-dev
   repository:
-    url: ghcr.io/phoban01/ocm-podify
+    url: ghcr.io/skarlso/ocm-podify
     secretRef:
       name: creds
-  verify:
-  - name: phoban01
-    publicKey:
-      secretRef:
-        name: phoban01-publickey
+  verify: []
   references:
     expand: true
 ---
