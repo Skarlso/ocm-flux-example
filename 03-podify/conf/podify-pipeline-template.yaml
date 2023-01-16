@@ -33,14 +33,14 @@ steps:
       namespace: {{ .Component.Namespace }}
     spec:
       interval: 1m0s
+      componentVersionRef:
+        name: {{ .Component.Name }}
+        namespace: {{ .Component.Namespace }}
       sourceRef:
         kind: Snapshot
         name: {{ .Parameters.Name }}
         namespace: {{ .Component.Namespace }}
       configRef:
-        componentVersionRef:
-          name: {{ .Component.Name }}
-          namespace: {{ .Component.Namespace }}
         resource:
           name: config
           {{ with .Component.Reference  }}
@@ -59,14 +59,14 @@ steps:
       namespace: {{ .Component.Namespace }}
     spec:
       interval: 1m0s
+      componentVersionRef:
+        name: {{ .Component.Name }}
+        namespace: {{ .Component.Namespace }}
       sourceRef:
         kind: Snapshot
         name: {{ .Parameters.Name }}-localized
         namespace: {{ .Component.Namespace }}
       configRef:
-        componentVersionRef:
-          name: {{ .Component.Name }}
-          namespace: {{ .Component.Namespace }}
         resource:
           name: config
           {{ with .Component.Reference  }}
