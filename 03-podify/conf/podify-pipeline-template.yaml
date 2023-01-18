@@ -92,7 +92,7 @@ steps:
       namespace: {{ .Component.Namespace }}
     spec:
       interval: 30s
-      url: oci://::fetchRepositoryURLFromSnapshot "{{ .Parameters.Name }}-configured"
+      url: oci://::fetchRepositoryURLFromSnapshot {{ .Parameters.Name }}-configured
       insecure: true
       ref:
         tag: latest
