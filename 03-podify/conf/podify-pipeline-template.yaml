@@ -11,7 +11,7 @@ steps:
       name: {{ .Parameters.Name }}
       namespace: {{ .Component.Namespace }}
     spec:
-      interval: 1m0s
+      interval: 30s
       componentVersionRef:
         name: {{ .Component.Name }}
         namespace: {{ .Component.Namespace }}
@@ -32,7 +32,7 @@ steps:
       name: {{ .Parameters.Name }}
       namespace: {{ .Component.Namespace }}
     spec:
-      interval: 1m0s
+      interval: 30s
       componentVersionRef:
         name: {{ .Component.Name }}
         namespace: {{ .Component.Namespace }}
@@ -60,7 +60,7 @@ steps:
       name: {{ .Parameters.Name }}
       namespace: {{ .Component.Namespace }}
     spec:
-      interval: 1m0s
+      interval: 30s
       componentVersionRef:
         name: {{ .Component.Name }}
         namespace: {{ .Component.Namespace }}
@@ -89,7 +89,7 @@ steps:
       name: {{ .Parameters.Name }}
       namespace: {{ .Component.Namespace }}
     spec:
-      interval: 1m0s
+      interval: 30s
       url: oci://{{ ( call .Parameters.FetchRepositoryURLFromSnapshot {{ .Parameters.Name }}-configured ) }}
       insecure: true
       ref:
@@ -102,7 +102,7 @@ steps:
       name: {{ .Parameters.Name }}
       namespace: {{ .Component.Namespace }}
     spec:
-      interval: 1m0s
+      interval: 30s
       prune: true
       targetNamespace: default
       sourceRef:
