@@ -82,6 +82,8 @@ steps:
         name: {{ .Parameters.Name }}-configured
         tag: latest
 - name: flux-source
+  dependsOn:
+    - name: config # name of the step
   template:
     apiVersion: source.toolkit.fluxcd.io/v1beta2
     kind: OCIRepository
@@ -90,7 +92,7 @@ steps:
       namespace: {{ .Component.Namespace }}
     spec:
       interval: 30s
-      url: oci://{{ ( call .Parameters.ConstructRepositoryURL "latest" ) }}
+      url: oci://::fetchRepositoryURLFromSnapshot {{ .Parameters.Name }}-configured
       insecure: true
       ref:
         tag: latest
