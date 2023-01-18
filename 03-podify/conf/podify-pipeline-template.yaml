@@ -92,10 +92,10 @@ steps:
       namespace: {{ .Component.Namespace }}
     spec:
       interval: 30s
-      url: oci://::fetchRepositoryURLFromSnapshot {{ .Parameters.Name }}-configured
+      url: ::fetchRepositoryURLFromSnapshot {{ .Parameters.Name }}-configured
       insecure: true
       ref:
-        tag: latest
+        tag: ::fetchTagFromSnapshot {{ .Parameters.Name }}-configured
 - name: flux-kustomization
   template:
     apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
