@@ -92,5 +92,5 @@ steps:
       targetNamespace: default
       sourceRef:
         kind: OCIRepository
-        name: {{ .Parameters.Name }}
+        name: {{ .Parameters.Name }}-configured
       path: ./
