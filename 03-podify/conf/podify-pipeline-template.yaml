@@ -77,22 +77,8 @@ steps:
             {{ end }}
       values: {{ .Values | toYaml | nindent 8 }}
       snapshotTemplate:
+        createFluxSource: true
         name: {{ .Parameters.Name }}-configured
-- name: flux-source
-  dependsOn:
-    - name: config # name of the step
-  template:
-    apiVersion: source.toolkit.fluxcd.io/v1beta2
-    kind: OCIRepository
-    metadata:
-      name: {{ .Parameters.Name }}
-      namespace: {{ .Component.Namespace }}
-    spec:
-      interval: 30s
-      url: ::fetchRepositoryURLFromSnapshot {{ .Parameters.Name }}-configured
-      insecure: true
-      ref:
-        tag: ::fetchTagFromSnapshot {{ .Parameters.Name }}-configured
 - name: flux-kustomization
   template:
     apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
