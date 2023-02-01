@@ -51,7 +51,6 @@ steps:
             {{ end }}
       snapshotTemplate:
         name: {{ .Parameters.Name }}-localized
-        tag: latest
 - name: config
   template:
     apiVersion: delivery.ocm.software/v1alpha1
@@ -80,7 +79,6 @@ steps:
       values: {{ .Values | toYaml | nindent 8 }}
       snapshotTemplate:
         name: {{ .Parameters.Name }}-configured
-        tag: latest
 - name: flux-source
   dependsOn:
     - name: config # name of the step
