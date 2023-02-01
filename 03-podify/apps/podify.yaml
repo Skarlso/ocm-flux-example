@@ -12,7 +12,11 @@ spec:
     url: ghcr.io/skarlso/ocm-podify
     secretRef:
       name: creds
-  verify: []
+  verify:
+  - name: skarlso
+    publicKey:
+      secretRef:
+        name: skarlso-publickey
   references:
     expand: true
 ---
